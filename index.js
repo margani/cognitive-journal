@@ -167,6 +167,10 @@ async function runProactiveAnalysis(recentEntries) {
         break;
     }
 
+    topicSpecificPrompt += `
+      Please provide it in Persian, in a concise and clear manner, focusing on actionable insights and observations.
+    `;
+
     const topicAnalysisResult = await getLLMResponse(topicSpecificPrompt);
     analysisResults[topic] = topicAnalysisResult;
     console.log(`Report for "${topic}":\n`, topicAnalysisResult);
